@@ -21,6 +21,9 @@ let hardLine = 100;
 // the difficulty ine
 let diffLine;
 
+// if user missed
+let missed = false;
+
 function setup() {
   // the canvas
   canvas = createCanvas(600, 600);
@@ -54,12 +57,21 @@ function draw() {
   // drawing the ball and checking its position
   ball.draw();
   ball.checkBox();
-
+  
+  // inform user to try again
+  if(missed) {
+	 text("Try again", 270, 90);
+  }
 }
 
 function mousePressed() {
+  
+  // reset missed value
+  missed = false;
+  
   // drops a ball if user clicks within
   // allowed area
+  
   if(mouseY < diffLine) {
     ball = new Ball(mouseX, mouseY);
   }
@@ -104,6 +116,8 @@ function easyBox() {
   box = new Box("easy");
   _difficulty = "easy"
   diffLine = easyLine;
+  hits = 0;
+  misses = 0;
 }
 
 function mediumBox() {
@@ -111,6 +125,8 @@ function mediumBox() {
   box = new Box("medium");
   _difficulty = "medium";
   diffLine = mediumLine;
+  hits = 0;
+  misses = 0;
 }
 
 function hardBox() {
@@ -118,6 +134,8 @@ function hardBox() {
   box = new Box("hard");
   _difficulty = "hard";
   diffLine = hardLine;
+  hits = 0;
+  misses = 0;
 }
 
 function drawText() {

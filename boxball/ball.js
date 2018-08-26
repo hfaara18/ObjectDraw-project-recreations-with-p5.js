@@ -25,8 +25,8 @@ function Ball(x, y) {
           misses += 1;
           ball = new Ball(-5, -5);
           box.x = random(0, width - box.w);
-		  
-		  missed = true;
+	  
+	  missed = true;
         }
       }
     }

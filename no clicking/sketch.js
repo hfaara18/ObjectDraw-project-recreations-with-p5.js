@@ -14,8 +14,16 @@ function draw() {
 
   fill("#ffff00");
   sign = rect(150, 100, 100, 100);
-  circle = ellipse(200, 150, 95, 95);
-  _line = line(165, 115, 234, 184);
+  
+  if(mouseIsPressed) {
+	  hide();
+  }
+  else {
+	circle = ellipse(200, 150, 95, 95);
+	_line = line(165, 115, 234, 184);
+  }
+  
+  
 
   push();
   fill(0);
@@ -37,4 +45,9 @@ function mouseReleased() {
   stroke(0);
   _text = text("CLICKING", 170, 155);
   pop();
+}
+
+function hide() {
+	circle = null;
+	_line = null;
 }
